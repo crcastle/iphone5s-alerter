@@ -5,7 +5,7 @@ require 'json'
 class Alerter
   def check(model, zip)
     sleep 1 # be nice to apple's api
-    response = HTTParty.get("http://store.apple.com/us/retail/availabilitySearch?parts.0=#{phone}&zip=#{zip}")
+    response = HTTParty.get("http://store.apple.com/us/retail/availabilitySearch?parts.0=#{model}&zip=#{zip}")
     r = JSON::load(response.body)
 
     r['body']['stores'].each_with_index do |store, i|
