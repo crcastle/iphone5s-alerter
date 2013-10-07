@@ -10,7 +10,7 @@ class Alerter
 
     r['body']['stores'].each_with_index do |store, i|
       if i < 5 # Check the 5 nearest stores in this ZIP code
-        if store['partsAvailability'][phone]['pickupDisplay'] == 'available'
+        if store['partsAvailability'][model]['pickupDisplay'] == 'available'
           puts "#{model} found in #{store['storeEmail']}"
           return true
         else
