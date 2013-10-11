@@ -36,13 +36,16 @@ class Alerter
 end
 
 alerter = Alerter.new
-zip_code = ENV['ZIP_CODE']
-# black iphone 5s
-alerter.txt("16gb black", zip_code) if alerter.check("ME341LL/A", zip_code)
-alerter.txt("32gb black", zip_code) if alerter.check("ME344LL/A", zip_code)
-alerter.txt("64gb black", zip_code) if alerter.check("ME347LL/A", zip_code)
+zip_codes = ENV['ZIP_CODE'].split(',')
 
-# white iphone 5s
-alerter.txt("16gb silver", zip_code) if alerter.check("ME342LL/A", zip_code)
-alerter.txt("32gb silver", zip_code) if alerter.check("ME345LL/A", zip_code)
-alerter.txt("64gb silver", zip_code) if alerter.check("ME348LL/A", zip_code)
+zip_codes.each do |zip_code|
+  # black iphone 5s
+  alerter.txt("16gb black", zip_code) if alerter.check("ME341LL/A", zip_code)
+  alerter.txt("32gb black", zip_code) if alerter.check("ME344LL/A", zip_code)
+  alerter.txt("64gb black", zip_code) if alerter.check("ME347LL/A", zip_code)
+
+  # white iphone 5s
+  alerter.txt("16gb silver", zip_code) if alerter.check("ME342LL/A", zip_code)
+  alerter.txt("32gb silver", zip_code) if alerter.check("ME345LL/A", zip_code)
+  alerter.txt("64gb silver", zip_code) if alerter.check("ME348LL/A", zip_code)
+end
